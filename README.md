@@ -1,7 +1,7 @@
 # CRUD Framework em Java
 
 ## Descrição do Projeto
-Este projeto é um framework simples em Java para gerenciar operações CRUD (Create, Read, Update, Delete) em entidades genéricas. O framework oferece duas implementações de repositórios: uma na memória e outra utilizando arquivos para armazenamento. Ele foi desenvolvido seguindo os princípios de programação orientada a objetos (POO) e boas práticas de design
+Este projeto é um framework simples em Java para gerenciar operações CRUD (Create, Read, Update, Delete) em entidades genéricas. Nesse contexto, o framework é utilizado para gerenciar dados de quaisquer tipos de produtos. O framework oferece duas implementações de repositórios: uma na memória e outra utilizando arquivos para armazenamento. Ele foi desenvolvido seguindo os princípios de programação orientada a objetos (POO) e boas práticas de design.
 
 ## Estrutura do Projeto
 
