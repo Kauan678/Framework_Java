@@ -130,7 +130,7 @@ public class Main {
     private static void atualizarProduto(ActionEvent e) {
         String idStr = solicitarEntrada("Digite o ID do produto a atualizar:");
         if (idStr == null) return;
-
+    
         try {
             int id = Integer.parseInt(idStr);
             Produto produto = produtoRepo.findById(id);
@@ -138,11 +138,10 @@ public class Main {
                 JOptionPane.showMessageDialog(null, "Produto com ID " + id + " não encontrado.");
                 return;
             }
-
-            String novoNome = solicitarEntrada("Digite o novo nome do produto (nome atual: " + produto.getNome() + "):");
-
+    
+            String novoNome = JOptionPane.showInputDialog(null, "Digite o novo nome do produto:", produto.getNome());
             if (novoNome == null) return;
-
+    
             List<Produto> produtos = produtoRepo.findAll();
             for (Produto p : produtos) {
                 if (p.getNome().equalsIgnoreCase(novoNome) && !p.equals(produto)) {
@@ -150,23 +149,30 @@ public class Main {
                     return;
                 }
             }
-
-            String novoPrecoStr = solicitarEntrada("Digite o novo preço do produto:");
+    
+            String novoPrecoStr = JOptionPane.showInputDialog(null, "Digite o novo preco do produto:", produto.getPreco());
             if (novoPrecoStr == null) return;
-
+    
             double novoPreco = Double.parseDouble(novoPrecoStr);
-
+    
+            // **Nova verificação:**
+            if (novoNome.equals(produto.getNome()) && novoPreco == produto.getPreco()) {
+                JOptionPane.showMessageDialog(null, "O produto não foi alterado mas foi mantido com sucesso!");
+                return;
+            }
+    
+            // Atualiza o produto apenas se necessário
             produto.setNome(novoNome);
             produto.setPreco(novoPreco);
-
+    
             produtoRepo.delete(id);
             produtoRepo.save(produto);
-
+    
             JOptionPane.showMessageDialog(null, "Produto atualizado com sucesso!");
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(null, "ID ou preço inválido! Operação cancelada.");
         }
-    }
+    }    
 
     private static void removerProduto(ActionEvent e) {
         String idStr = solicitarEntrada("Digite o ID do produto a remover:");

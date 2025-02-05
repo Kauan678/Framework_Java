@@ -62,4 +62,3 @@ A saída são os produtos no arquivo "produtos.txt" quando armazenados em arquiv
 
 ## Contribuições
 Aceito contribuições! Sintam-se à vontade para enviar *pull requests* ou abrir *issues*
-
