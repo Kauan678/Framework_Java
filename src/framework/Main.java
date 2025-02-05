@@ -140,7 +140,10 @@ public class Main {
             }
     
             String novoNome = JOptionPane.showInputDialog(null, "Digite o novo nome do produto:", produto.getNome());
-            if (novoNome == null) return;
+            if (novoNome == null) {
+                JOptionPane.showMessageDialog(null, "Operação cancelada!");
+                return;
+            }            
     
             List<Produto> produtos = produtoRepo.findAll();
             for (Produto p : produtos) {
@@ -151,7 +154,10 @@ public class Main {
             }
     
             String novoPrecoStr = JOptionPane.showInputDialog(null, "Digite o novo preco do produto:", produto.getPreco());
-            if (novoPrecoStr == null) return;
+            if (novoPrecoStr == null) {
+                JOptionPane.showMessageDialog(null, "Operação cancelada!");
+                return;
+            }            
     
             double novoPreco = Double.parseDouble(novoPrecoStr);
     
