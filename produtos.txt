@@ -1,5 +1,4 @@
+uvas,5.89
+presunto,25.45
+leite,5.79
 pao,5.49
-nescau,7.89
-ovos,12.85
-bananas,5.89
-queijo,28.67

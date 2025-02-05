@@ -23,11 +23,13 @@ public class InMemoryRepository<T> implements CrudRepository<T> {
 
     @Override
     public void update(T entity) {
-        int index = entities.indexOf(entity);
-        if (index != -1) {
-            entities.set(index, entity);
+        for (int i = 0; i < entities.size(); i++) {
+            if (entities.get(i).equals(entity)) {
+                entities.set(i, entity);
+                return;
+            }
         }
-    }
+    }    
 
     @Override
     public void delete(int id) {
